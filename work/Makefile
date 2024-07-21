@@ -1,8 +1,10 @@
 TECH_SIM=/usr/cad/cell_lib/TN40G/CBDK_TSMC40_Arm_f2.0/CIC/Verilog/sc9_cln40g_base_rvt.v
 TECH_SIM_NEG=/usr/cad/cell_lib/TN40G/CBDK_TSMC40_Arm_f2.0/CIC/Verilog/sc9_cln40g_base_rvt_neg.v
 TECH_SIM_UDP=/usr/cad/cell_lib/TN40G/CBDK_TSMC40_Arm_f2.0/CIC/Verilog/sc9_cln40g_base_rvt_udp.v
-SRAM_SIM=../sram/rf_2p_hse.v
-GATE_TOP=tb_rf_2p_hse
+#SRAM_SIM=../sram/rf_2p_hse.v
+#GATE_TOP=tb_rf_2p_hse
+SRAM_SIM=../sram/sram_dp_hde.v
+GATE_TOP=tb_sram_dp_hde
 ANNOTATE_PATH=/${GATE_TOP}/DUT
 
 error:

@@ -1,5 +1,7 @@
-set TOP "../src/rf_2p_hse_wrapper.sv"
-set DESIGN "rf_2p_hse_wrapper"
+#set TOP "../src/rf_2p_hse_wrapper.sv"
+#set DESIGN "rf_2p_hse_wrapper"
+set TOP "../src/sram_dp_hde_wrapper.sv"
+set DESIGN "sram_dp_hde_wrapper"
 set CYCLE 2.0
 
 set_host_options -max_cores 8

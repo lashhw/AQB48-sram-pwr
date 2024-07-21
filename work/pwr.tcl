@@ -1,4 +1,5 @@
-set DESIGN "rf_2p_hse_wrapper"
+#set DESIGN "rf_2p_hse_wrapper"
+set DESIGN "sram_dp_hde_wrapper"
 
 set_host_options -max_cores 8
 
