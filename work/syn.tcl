@@ -12,11 +12,11 @@ elaborate $DESIGN
 
 set_operating_conditions -library sc9_cln40g_base_rvt_tt_typical_max_0p90v_25c tt_typical_max_0p90v_25c
 set_load 0.00633 [all_outputs]
-set_driving_cell -no_design_rule -library sc9_cln40g_base_rvt_tt_typical_max_0p90v_25c -lib_cell DFFQ_X0P5M_A9TR -pin Q [all_inputs]
+set_driving_cell -no_design_rule -library sc9_cln40g_base_rvt_tt_typical_max_0p90v_25c -lib_cell DFFQ_X0P5M_A9TR -pin Q [remove_from_collection [all_inputs] [get_ports {clk}]]
 
 create_clock -name clk -period $CYCLE [get_ports {clk}]
 set_clock_transition 0.01 [get_clocks {clk}] 
-set_input_delay -clock [get_clocks {clk}] 0.0 [all_inputs]
+set_input_delay -clock [get_clocks {clk}] 0.0 [remove_from_collection [all_inputs] [get_ports {clk}]]
 set_input_transition 0.01 [remove_from_collection [all_inputs] [get_ports {clk}]]
 set_output_delay -clock [get_clocks {clk}] 0.0 [all_outputs]
 
