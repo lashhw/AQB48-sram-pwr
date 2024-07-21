@@ -1,4 +1,4 @@
-set TOP "../src/rf_2p_hse_wrapper.v"
+set TOP "../src/rf_2p_hse_wrapper.sv"
 set DESIGN "rf_2p_hse_wrapper"
 set CYCLE 2.0
 

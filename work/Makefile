@@ -28,7 +28,6 @@ pwr:
 	pwr_shell -f pwr.tcl -x "set ANNOTATE_PATH ${ANNOTATE_PATH}" -output_log_file pwr.log
 
 clean:
-	rm -rf ../sram/*
 	rm -rf transcript work *.wlf etch*
 	rm -rf *.svf *.log *.ddc *.v *.sdc *.sdf alib-*
 	rm -rf .rce *.fsdb *.saif primetime_px*

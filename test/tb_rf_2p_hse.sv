@@ -9,7 +9,7 @@
 module tb_rf_2p_hse;
 
 // input
-logic                   CLK;
+logic                   clk;
 logic                   CENA;
 logic [`ADDR_WIDTH-1:0] AA;
 logic                   CENB;
@@ -24,22 +24,44 @@ logic [`ADDR_WIDTH-1:0] AA_prev;
 logic [      `BITS-1:0] mem [0:`WORDS-1];
 
 rf_2p_hse_wrapper DUT (
-    .clk(CLK),
+    .CENYA(),
+    .AYA(),
+    .CENYB(),
+    .AYB(),
+    .DYB(),
+    .QA(QA),
+    .clk(clk),
     .CENA(CENA),
     .AA(AA),
-    .QA(QA),
     .CENB(CENB),
     .AB(AB),
-    .DB(DB)
+    .DB(DB),
+    .EMAA(3'b0),
+    .EMASA(1'b0),
+    .EMAB(3'b0),
+    .EMAWB(2'b0),
+    .TENA(1'b1),
+    .BENA(1'b1),
+    .TCENA(1'b0),
+    .TAA({`ADDR_WIDTH{1'b0}}),
+    .TQA({`BITS{1'b0}}),
+    .TENB(1'b1),
+    .TCENB(1'b0),
+    .TAB({`ADDR_WIDTH{1'b0}}),
+    .TDB({`BITS{1'b0}}),
+    .RET1N(1'b1),
+    .STOVA(1'b0),
+    .STOVB(1'b0),
+    .COLLDISN(1'b1)
 );
 
-always #(`CYCLE_TIME/2.0) CLK = ~CLK;
+always #(`CYCLE_TIME/2.0) clk = ~clk;
 
 initial begin
-    CLK  <= 0;
+    clk  <= 0;
     CENA <= 1;
     CENB <= 1;
-    @(posedge CLK);
+    @(posedge clk);
 
     // initialize
     CENB <= 0;
@@ -47,7 +69,7 @@ initial begin
         AB <= i;
         mem[i] = $urandom;
         DB <= mem[i];
-        @(posedge CLK);
+        @(posedge clk);
     end
     CENB <= 1;
 
@@ -55,10 +77,10 @@ initial begin
     CENA <= 0;
     for (int i = 0; i < `NUM_READS; i++) begin
         AA <= $urandom;
-        @(negedge CLK);
+        @(negedge clk);
         if (i != 0)
             assert(QA === mem[AA_prev]);
-        @(posedge CLK);
+        @(posedge clk);
         AA_prev = AA;
     end
     CENA <= 1;
@@ -68,7 +90,7 @@ initial begin
     repeat (`NUM_WRITES) begin
         AB <= $urandom;
         DB <= $urandom;
-        @(posedge CLK);
+        @(posedge clk);
     end
     CENB <= 1;
 
