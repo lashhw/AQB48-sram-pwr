@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 `include "../include/rf_2p_hse_params.vh"
 
-`define CYCLE_TIME 4.0
+`define CYCLE_TIME 2.0
 
 `define NUM_READS  1000000
 `define NUM_WRITES 0

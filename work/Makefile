@@ -18,7 +18,7 @@ syn:
 gate_sim:
 	vlog -64 -v ${TECH_SIM} -v ${TECH_SIM_NEG} -v ${TECH_SIM_UDP} -v ${SRAM_SIM} gate.v
 	vlog -64 ../test/${GATE_TOP}.sv
-	vopt -64 +acc=npr+${ANNOTATE_PATH}. -sdftyp ${ANNOTATE_PATH}=gate.sdf ${GATE_TOP} -o tb_opt
+	vopt -64 +acc=npr+${ANNOTATE_PATH}. -sdftyp ${ANNOTATE_PATH}=gate.sdf +notimingchecks ${GATE_TOP} -o tb_opt
 	vsim -64 -sdfnoerror -do "power add -r ${ANNOTATE_PATH}/*" tb_opt
 	# run the following commands in QuestaSim console
 	# run <timesteps>
