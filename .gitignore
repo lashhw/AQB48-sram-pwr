@@ -1,0 +1,8 @@
+sram/
+work/*
+!work/.synopsys_dc.setup
+!work/.synopsys_pt.setup
+!work/lc.tcl
+!work/Makefile
+!work/pwr.tcl
+!work/syn.tcl
