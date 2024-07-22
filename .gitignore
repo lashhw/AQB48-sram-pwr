@@ -1,4 +1,3 @@
-sram/
 work/*
 !work/.synopsys_dc.setup
 !work/.synopsys_pt.setup
