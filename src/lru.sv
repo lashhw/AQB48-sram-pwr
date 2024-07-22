@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+
 module lru (
     clk, hit, hit_way, old_lru_bits, replace_way, new_lru_bits
 );
